@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
@@ -14,14 +15,15 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import logo from '../../../src/assets/logo/Clean_Elegant_Typography_Brand_Logo-removebg-preview.png'
-
+import { grey } from '@mui/material/colors';
+import logo from "../../../src/assets/logo/Clean_Elegant_Typography_Brand_Logo-removebg-preview.png"
+const color = grey[900];
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    backgroundColor: color,
     '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
+        backgroundColor: color,
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -155,8 +157,14 @@ export default function NavBar() {
     );
 
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+        <Box sx={{ flexGrow: 1 }} style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            zIndex: 1000
+        }}>
+            <AppBar position="static" style={{ backgroundColor: 'black' }}>
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -164,12 +172,18 @@ export default function NavBar() {
                         color="inherit"
                         aria-label="open drawer"
                         sx={{ mr: 2 }}
+                        onClick={handleProfileMenuOpen}
                     >
                         <MenuIcon />
                     </IconButton>
-                    <div className='w-10 h-10'>
-                        <img src={logo} alt="" />
-                    </div>
+                    <Typography
+                        variant="h5"
+                        noWrap
+                        component="div"
+                        sx={{ display: { xs: 'none', sm: 'block' } }}
+                    >
+                        <img src={logo} alt='logo' width={70}></img>
+                    </Typography>
                     <Search>
                         <SearchIconWrapper>
                             <SearchIcon />
