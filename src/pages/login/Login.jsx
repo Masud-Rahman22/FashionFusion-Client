@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import Register from '../register/Register';
 import { Link } from 'react-router-dom';
 const Login = () => {
     const [openModal, setOpenModal] = useState(false);
+    const [openRegisterModal, setOpenRegisterModal] = useState(false);
     const menuId = 'primary-search-account-menu';
     return (
         <div>
@@ -43,10 +45,13 @@ const Login = () => {
                                 </span>
                             </div>
                         </div>
-                        <p>hey there pal !! you new here ? then hurry up <Link to='/register'>Register Now</Link></p>
+                        {/* here link is to home so further it can be a big problem just for a reminder to change it in future */}
+                        <p className='mt-5'>Hey there pal !! you new here ? then hurry up <Link to='/'><button onClick={()=>setOpenRegisterModal(true)} className='text-blue-300'>Register</button></Link> now</p>
+                        
                         {/* button type will be submit for handling form submission*/}
                         <button className="text-xl w-32 h-14 bg-gray-700 text-white relative overflow-hidden group z-10 hover:text-white duration-1000 rounded-md mt-5"><span className="absolute bg-black size-36 rounded-full group-hover:scale-100 scale-0 -z-10 -left-2 -top-10 group-hover:duration-500 duration-700 origin-center transform transition-all"></span><span className="absolute bg-black size-36 -left-2 -top-10 rounded-full group-hover:scale-100 scale-0 -z-10 group-hover:duration-700 duration-500 origin-center transform transition-all"></span>Login</button>
                     </form>
+                    <Register openRegisterModal={openRegisterModal} setOpenRegisterModal={setOpenRegisterModal}></Register>
                 </div>
             </div>
         </div>

@@ -12,7 +12,7 @@ const Banner = () => {
     }, [currentSlider]);
 
     return (
-        <div className="w-full h-screen">
+        <div className="w-full h-screen"style={{height: `calc(100vh-100px)`}}>
             <div className="relative overflow-hidden">
                 {/* slider container */}
                 <div className="ease-linear duration-300 flex flex-col h-60 sm:h-96 md:h-screen transform-gpu relative object-cover" style={{ transform: `translateY(-${currentSlider * 100}%)` }}>
