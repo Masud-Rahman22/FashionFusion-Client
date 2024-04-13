@@ -4,6 +4,7 @@ import {
 import MainLayout from "../layout/MainLayout";
 import ErrorPage from "../pages/errorPage/ErrorPage";
 import Home from "../layout/Home/Home";
+import Login from "../pages/login/Login";
 
 const Router = createBrowserRouter([
     {

@@ -164,7 +164,7 @@ export default function NavBar() {
             width: '100%',
             zIndex: 1000
         }}>
-            <AppBar position="static" style={{ backgroundColor: 'black' }}>
+            <AppBar position="static" sx={{ backgroundColor: 'transparent' }}>
                 <Toolbar>
                     <IconButton
                         size="large"

@@ -1,0 +1,18 @@
+.banner-container {
+    position: relative; /* Ensure relative positioning for absolute positioning of image */
+    height: 100vh; /* Set height of container to full viewport height */
+    overflow: hidden; /* Hide overflow from the image */
+}
+
+.image-container {
+    position: absolute; /* Position the image absolutely */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure image fills entire width */
+    height: 100%; /* Ensure image fills entire height */
+    z-index: -1; /* Place image behind other content */
+}
+
+.image-container img {
+    object-fit: cover; /* Ensure the image covers the entire container */
+}
