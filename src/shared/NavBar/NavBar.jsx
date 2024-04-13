@@ -17,6 +17,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { grey } from '@mui/material/colors';
 import logo from "../../../src/assets/logo/Clean_Elegant_Typography_Brand_Logo-removebg-preview.png"
+import Login from '../../pages/login/Login';
 const color = grey[900];
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -209,17 +210,7 @@ export default function NavBar() {
                                 <NotificationsIcon />
                             </Badge>
                         </IconButton>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            color="inherit"
-                        >
-                            <AccountCircle />
-                        </IconButton>
+                        <Login></Login>
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
