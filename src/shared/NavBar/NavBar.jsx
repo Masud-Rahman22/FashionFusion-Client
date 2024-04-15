@@ -4,6 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 // import InputBase from '@mui/material/InputBase';
 import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
@@ -17,6 +18,8 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 // import { grey } from '@mui/material/colors';
 import logo from "../../../src/assets/logo/Clean_Elegant_Typography_Brand_Logo-removebg-preview.png"
 import Login from '../../pages/login/Login';
+import { Drawer } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 // const color = grey[900];
 // const Search = styled('div')(({ theme }) => ({
 //     position: 'relative',
@@ -57,11 +60,69 @@ import Login from '../../pages/login/Login';
 // }));
 
 export default function NavBar() {
+    const [openSidebar, setOpenSidebar] = React.useState(false)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+    //here all the routes
+
+    const navLinks = <>
+        <ul>
+            <li>
+                <NavLink
+                    to="/"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "active" : "#009688 font-bold"
+                    }
+                >
+                    HOME
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "active" : "#009688 font-bold"
+                    }
+                >
+                    MEN
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "active" : "#009688 font-bold"
+                    }
+                >
+                    WOMEN
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "active" : "#009688 font-bold"
+                    }
+                >
+                    CHILDREN
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to="/"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "active" : "#009688 font-bold"
+                    }
+                >
+                    WORLD OF FashionFusion
+                </NavLink>
+            </li>
+        </ul>
+    </>
 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
@@ -78,6 +139,10 @@ export default function NavBar() {
 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
+    };
+
+    const toggleSidebar = () => {
+        setOpenSidebar(!openSidebar);
     };
 
     const menuId = 'primary-search-account-menu';
@@ -119,26 +184,6 @@ export default function NavBar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem>
-                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="error">
-                        <MailIcon />
-                    </Badge>
-                </IconButton>
-                <p>Messages</p>
-            </MenuItem>
-            <MenuItem>
-                <IconButton
-                    size="large"
-                    aria-label="show 17 new notifications"
-                    color="inherit"
-                >
-                    <Badge badgeContent={17} color="error">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
-                <p>Notifications</p>
-            </MenuItem>
             <MenuItem onClick={handleProfileMenuOpen}>
                 <IconButton
                     size="large"
@@ -153,7 +198,6 @@ export default function NavBar() {
             </MenuItem>
         </Menu>
     );
-
     return (
         <Box sx={{ flexGrow: 1 }} style={{
             position: 'fixed',
@@ -170,15 +214,43 @@ export default function NavBar() {
                             edge="start"
                             color="inherit"
                             aria-label="open drawer"
-                            onClick={handleProfileMenuOpen}
+                            onClick={toggleSidebar}
                         >
                             <MenuIcon />
                         </IconButton>
-                        
+                        <Drawer
+                            anchor="left"
+                            open={openSidebar}
+                            onClose={() => setOpenSidebar(false)}
+                            sx={{
+                                width: 400,
+                                flexShrink: 0,
+                                '& .MuiDrawer-paper': {
+                                    width: 400,
+                                    boxSizing: 'border-box',
+                                    backgroundColor: 'black',
+                                    paddingTop: '90px',
+                                },
+                                '& ul': {
+                                    listStyleType: 'none', 
+                                    padding: 0, 
+                                },
+                                '& li': {
+                                    marginBottom: '20px', // Add vertical space between list items
+                                },
+                            }}
+                        >
+                            <Typography variant="h6" align="left" marginLeft={7} style={{ color: '#fff' }}> {/* Set white color */}
+                                {navLinks}
+                            </Typography>
+                        </Drawer>
+
+
+                        {renderMenu}
                     </Box>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <img src={logo} alt='logo' width={100} />
-                        </Box>
+                        <img src={logo} alt='logo' width={100} />
+                    </Box>
                     {/* <Search>
                         <SearchIconWrapper>
                             <SearchIcon />
