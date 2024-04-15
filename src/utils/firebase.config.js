@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_apiKey,
-    authDomain: import.meta.env.VITE_authDomain,
-    projectId: import.meta.env.VITE_projectId,
-    storageBucket: import.meta.env.VITE_storageBucket,
-    messagingSenderId: import.meta.env.VITE_messagingSenderId,
-    appId: import.meta.env.VITE_appId
+    apiKey: "AIzaSyDmnoO1NUvcwHJSauYWdxBOIqRWGCjZsgY",
+    authDomain: "fashionfusion-60290.firebaseapp.com",
+    projectId: "fashionfusion-60290",
+    storageBucket: "fashionfusion-60290.appspot.com",
+    messagingSenderId: "1008944219445",
+    appId: "1:1008944219445:web:4410ef535c5f227726787c"
 };
 
 // Initialize Firebase
