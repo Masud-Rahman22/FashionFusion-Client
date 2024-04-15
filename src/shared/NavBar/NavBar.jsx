@@ -19,7 +19,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import logo from "../../../src/assets/logo/Clean_Elegant_Typography_Brand_Logo-removebg-preview.png"
 import Login from '../../pages/login/Login';
 import { Drawer } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // const color = grey[900];
 // const Search = styled('div')(({ theme }) => ({
 //     position: 'relative',
@@ -71,56 +71,31 @@ export default function NavBar() {
 
     const navLinks = <>
         <ul>
-            <li>
-                <NavLink
-                    to="/"
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "active" : "#009688 font-bold"
-                    }
-                >
-                    HOME
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                    to="/"
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "active" : "#009688 font-bold"
-                    }
-                >
-                    MEN
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                    to="/"
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "active" : "#009688 font-bold"
-                    }
-                >
-                    WOMEN
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                    to="/"
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "active" : "#009688 font-bold"
-                    }
-                >
-                    CHILDREN
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                    to="/"
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "active" : "#009688 font-bold"
-                    }
-                >
-                    WORLD OF FashionFusion
-                </NavLink>
-            </li>
+            <Link to='/'>
+                <li className="group flex  cursor-pointer flex-col">
+                    HOME<span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-white transition-all duration-300 group-hover:w-1/5"></span>
+                </li>
+            </Link>
+            <Link to='/men'>
+                <li className="group flex  cursor-pointer flex-col">
+                    MEN<span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-white transition-all duration-300 group-hover:w-1/6"></span>
+                </li>
+            </Link>
+            <Link to='/women'>
+                <li className="group flex  cursor-pointer flex-col">
+                    WOMEN<span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-white transition-all duration-300 group-hover:w-1/4"></span>
+                </li>
+            </Link>
+            <Link to='/children'>
+                <li className="group flex  cursor-pointer flex-col">
+                    CHILDREN<span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-white transition-all duration-300 group-hover:w-1/3"></span>
+                </li>
+            </Link>
+            <Link>
+                <li className="group flex  cursor-pointer flex-col">
+                    WORLD OF FashionFusion<span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-white transition-all duration-300 group-hover:w-3/4"></span>
+                </li>
+            </Link>
         </ul>
     </>
 
@@ -206,7 +181,13 @@ export default function NavBar() {
             width: '100%',
             zIndex: 1000
         }}>
-            <AppBar position="static" sx={{ backgroundColor: 'transparent' }}>
+            <AppBar position="static" sx={{
+                backgroundColor: 'transparent',
+                transition: 'background-color 0.3s ease',
+                '&:hover': {
+                    backgroundColor: '#000',
+                },
+            }}>
                 <Toolbar style={{ justifyContent: 'space-between' }}>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
                         <IconButton
@@ -232,8 +213,8 @@ export default function NavBar() {
                                     paddingTop: '90px',
                                 },
                                 '& ul': {
-                                    listStyleType: 'none', 
-                                    padding: 0, 
+                                    listStyleType: 'none',
+                                    padding: 0,
                                 },
                                 '& li': {
                                     marginBottom: '20px', // Add vertical space between list items
