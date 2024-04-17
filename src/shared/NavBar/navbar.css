@@ -1,0 +1,8 @@
+.scrollable-appbar {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.scrollable-appbar.blurred {
+    backdrop-filter: blur(4px);
+}

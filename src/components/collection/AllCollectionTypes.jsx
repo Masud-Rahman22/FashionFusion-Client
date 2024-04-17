@@ -1,12 +1,12 @@
-import kidModel from '../../../src/assets/models/pexels-amina-filkins-5561442.jpg'
+import kidModel from '../../../src/assets/models/pexels-amina-filkins-5559990.jpg'
 import womenModel from '../../../src/assets/models/pexels-maksim-goncharenok-4380970.jpg'
 import maleModel from '../../../src/assets/models/pexels-mateus-carvalho-8160848.jpg'
 import '../collection/AllCollectionTypes.css'
 
 const AllCollectionTypes = () => {
     return (
-        <div className="my-20">
-            <div className="grid grid-cols-3 gap-2">
+        <div className="m-10">
+            <div className="grid grid-cols-3 gap-5">
                 <div className='card'>
                     <img
                         src={maleModel}
