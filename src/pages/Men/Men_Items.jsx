@@ -1,16 +1,43 @@
-import image1 from '../../assets/male models/pexels-cottonbro-6626999.jpg'
-import image2 from '../../assets/male models/pexels-cottonbro-7621731.jpg'
-import image3 from '../../assets/male models/pexels-cottonbro-7621779.jpg'
-import image4 from '../../assets/male models/pexels-cottonbro-9078004.jpg'
-import image5 from '../../assets/male models/pexels-suru-2899937.jpg'
 
+import { useQuery } from "@tanstack/react-query";
+import useAxios from '../../hooks/useAxios';
+import { useState } from 'react';
+import MenModelsBanner from "./MenModelsBanner";
 const Men_Items = () => {
+    const [clickedCategory, setClickedCategory] = useState(null);
+    const axiosPublic = useAxios()
+    const { data: menProducts = [] } = useQuery({
+        queryKey: ['menProducts'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/api/menProducts')
+            return res.data
+        }
+    })
+
+    const handleCategory = (category) => {
+        setClickedCategory(category);
+    };
+    console.log(menProducts)
     return (
         <div>
-            <div className='w-full h-[30vh]'>
-                <img src={image1} alt="male models group photo" />
+            <MenModelsBanner></MenModelsBanner>
+            <div className='md:flex justify-between items-center h-[80vh]'>
+                <div>
+                    <h1 className='text-3xl text-white font-bold text-center mb-10 mr-8'>Categories</h1>
+                    <div className="space-y-4">
+                        {
+                            menProducts?.map(product => (
+                                <button key={product._id}
+                                    onClick={() => handleCategory(product?.title)}
+                                    className={`border border-white text-white w-4/5 mb-2 px-4 md:ml-8 py-2 text-sm hover:bg-[#28282B] hover:text-white rounded-md text-center`}>{product.title}</button>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div>
+
+                </div>
             </div>
-            
         </div>
     );
 };

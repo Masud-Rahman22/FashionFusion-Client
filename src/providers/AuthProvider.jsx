@@ -10,7 +10,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({children}) => {
     const [user,setUsers] = useState({});
     const dispatch = useDispatch()
-    const axios = useAxios()
+    const axiosPublic = useAxios()
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -18,7 +18,7 @@ const AuthProvider = ({children}) => {
             setUsers(user)
             if (user) {
                 const userInfo = {email: user.email}
-                axios.post('/api/jwt', userInfo)
+                axiosPublic.post('/api/jwt', userInfo)
                 .then(res=>{
                     if(res.data.token){
                         localStorage.setItem('access-token', res.data.token)
