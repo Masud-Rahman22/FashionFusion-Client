@@ -11,15 +11,14 @@ const AllCollectionTypes = () => {
                     <img
                         src={maleModel}
                         alt=""
-                        // onMouseEnter={() => setIsHoveredImg1(true)}
-                        // onMouseLeave={() => setIsHoveredImg1(false)}
-                        // className={isHoveredImg1 ? 'filter blur-sm' : ''}
+                    // onMouseEnter={() => setIsHoveredImg1(true)}
+                    // onMouseLeave={() => setIsHoveredImg1(false)}
+                    // className={isHoveredImg1 ? 'filter blur-sm' : ''}
                     />
                     {/* {isHoveredImg1 && ( */}
-                        <div className="card-body">
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">Button 1</button>
-                            <button className="bg-green-500 text-white px-4 py-2 rounded-md">Button 2</button>
-                        </div>
+                    <div className="card-body">
+                    <button className="group ml-14 relative flex w-60 text-2xl items-center rounded-lg border-2 border-[#28282B] p-4 text-white bg-[#28282B]"><span>M E N</span><span className="absolute right-3 box-content flex w-1/6 justify-center rounded-md bg-[#28282B] duration-300 group-hover:w-11/12"><svg viewBox="0 0 24 24" fill="none" className="w-16" xmlns="http://www.w3.org/2000/svg"><g strokeWidth="0"></g><g strokeLinecap="round" strokeLinejoin="round"></g><g><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></g></svg></span></button>
+                    </div>
                     {/* )} */}
                 </div>
                 <div className='card'>
@@ -28,9 +27,8 @@ const AllCollectionTypes = () => {
                         alt=""
                     />
                     <div className="card-body">
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">Button 1</button>
-                            <button className="bg-green-500 text-white px-4 py-2 rounded-md">Button 2</button>
-                        </div>
+                    <button className="group ml-14 relative flex w-60 text-2xl items-center rounded-lg border-2 border-[#28282B] p-4 text-white bg-[#28282B]"><span>W O M E N</span><span className="absolute right-3 box-content flex w-1/6 justify-center rounded-md bg-[#28282B] duration-300 group-hover:w-11/12"><svg viewBox="0 0 24 24" fill="none" className="w-16" xmlns="http://www.w3.org/2000/svg"><g strokeWidth="0"></g><g strokeLinecap="round" strokeLinejoin="round"></g><g><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></g></svg></span></button>
+                    </div>
                 </div>
                 <div className='card'>
                     <img
@@ -38,9 +36,8 @@ const AllCollectionTypes = () => {
                         alt=""
                     />
                     <div className="card-body">
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">Button 1</button>
-                            <button className="bg-green-500 text-white px-4 py-2 rounded-md">Button 2</button>
-                        </div>
+                        <button className="group ml-14 relative flex w-60 text-2xl items-center rounded-lg border-2 border-[#28282B] p-4 text-white bg-[#28282B]"><span>K I D S</span><span className="absolute right-3 box-content flex w-1/6 justify-center rounded-md bg-[#28282B] duration-300 group-hover:w-11/12"><svg viewBox="0 0 24 24" fill="none" className="w-16" xmlns="http://www.w3.org/2000/svg"><g strokeWidth="0"></g><g strokeLinecap="round" strokeLinejoin="round"></g><g><path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></g></svg></span></button>
+                    </div>
                 </div>
             </div>
         </div>
