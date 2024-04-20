@@ -6,7 +6,7 @@ const Items_Card = ({ filteredProduct }) => {
     const [hovered, setHovered] = useState(false);
     return (
         <div>
-            <Link to='/itemDetails'>
+            <Link to={`/itemDetails/${filteredProduct?._id}`}>
             <div className='relative' onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>
             <img
