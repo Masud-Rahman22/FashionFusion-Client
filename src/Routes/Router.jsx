@@ -9,6 +9,7 @@ import Register from "../pages/register/Register";
 import Men_Items from "../pages/Men/Men_Items";
 import Women_Items from "../pages/Women/Women_Items";
 import Children_Items from "../pages/children/Children_Items";
+import ItemDetails from "../pages/itemDetails/ItemDetails";
 
 const Router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const Router = createBrowserRouter([
                 path: "/children",
                 element: <Children_Items></Children_Items>
             },
+            {
+                path: '/itemDetails',
+                element: <ItemDetails></ItemDetails>
+            }
         ]
     },
 ]);
