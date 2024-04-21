@@ -73,6 +73,7 @@ const TextTypography = styled(Typography)({
 
 
 
+// eslint-disable-next-line react/prop-types
 export default function NavBar({ isBlack }) {
     const { user } = React.useContext(AuthContext)
     const [openSidebar, setOpenSidebar] = React.useState(false)

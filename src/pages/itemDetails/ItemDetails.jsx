@@ -8,7 +8,6 @@ const ItemDetails = () => {
     const [quantity, setQuantity] = useState(1);
     const [isAdded, setIsAdded] = useState(false);
     const [hoveredImage, setHoveredImage] = useState(null);
-    const [zoomed, setZoomed] = useState(false);
     const axiosPublic = useAxios()
     const { data: menProductById = {}, isLoading, isError } = useQuery({
         queryKey: ['menProductById', id],
@@ -21,14 +20,6 @@ const ItemDetails = () => {
 
     const handleHover = (image) => {
         setHoveredImage(image);
-    };
-
-    const handleZoom = () => {
-        setZoomed(true);
-    };
-
-    const handleUnzoom = () => {
-        setZoomed(false);
     };
 
     const incrementQuantity = () => {
@@ -59,21 +50,21 @@ const ItemDetails = () => {
             <NavBar isBlack={true} />
             <div style={{ marginTop: '50px' }}>
                 <div className="grid grid-cols-7">
-                    <div className="col-span-1 ml-20 mt-10">
+                    <div className="col-span-1 ml-20 my-10">
                     {menProductById.images.slice(1).map((image, index) => (
                             <img
                                 key={index}
-                                className="w-32 h-32 mb-2 cursor-pointer"
+                                className="w-20 h-20 mb-5 cursor-pointer"
                                 src={image}
                                 alt={`Image ${index}`}
                                 onMouseEnter={() => handleHover(image)}
                             />
                         ))}
                     </div>
-                    <div className="col-span-3 mt-10">
-                    <div className="relative" onMouseEnter={handleZoom} onMouseLeave={handleUnzoom}>
+                    <div className="col-span-3 my-10">
+                    <div className="relative">
                         <img
-                            className={`w-[800px] h-[673px] ${zoomed ? 'transform scale-125' : ''}`}
+                            className={`w-[800px] h-[673px] `}
                             src={hoveredImage || menProductById.images[0]}
                             alt=""
                         />
