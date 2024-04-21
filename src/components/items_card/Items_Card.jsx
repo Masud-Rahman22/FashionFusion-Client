@@ -26,7 +26,7 @@ const Items_Card = ({ filteredProduct }) => {
             </Link>
             <div className="space-y-2">
                 <h1 className='text-white text-xl pt-3 font-bold font-serif'>{filteredProduct?.title}</h1>
-                <p className='text-white text-lg font-serif'>{filteredProduct?.availability}</p>
+                <p className={`text-white text-lg font-serif ${filteredProduct.availability === 'Out of Stock' ? 'text-red-600': 'text-white'}`}>{filteredProduct?.availability}</p>
                 <p className='text-white text-lg font-bold font-serif'>BDT {filteredProduct?.price} (Incl. VAT)</p>
             </div>
             

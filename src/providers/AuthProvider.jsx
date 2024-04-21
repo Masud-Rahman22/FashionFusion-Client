@@ -9,6 +9,7 @@ export const AuthContext = createContext(null);
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({children}) => {
     const [user,setUsers] = useState({});
+    const [loading, setLoading] = useState(true);
     const dispatch = useDispatch()
     const axiosPublic = useAxios()
 
@@ -16,6 +17,7 @@ const AuthProvider = ({children}) => {
         onAuthStateChanged(auth, (user) => {
             console.log(user)
             setUsers(user)
+            setLoading(false)
             if (user) {
                 const userInfo = {email: user.email}
                 axiosPublic.post('/api/jwt', userInfo)
@@ -34,10 +36,11 @@ const AuthProvider = ({children}) => {
                 dispatch(toggleLoading(false))
             }
         })
-    }, [dispatch])
+    }, [dispatch,axiosPublic])
     console.log(user)
     const authInformation = {
         user,
+        loading
     }
     return (
         <AuthContext.Provider value={authInformation}>

@@ -73,7 +73,7 @@ const TextTypography = styled(Typography)({
 
 
 
-export default function NavBar() {
+export default function NavBar({ isBlack }) {
     const { user } = React.useContext(AuthContext)
     const [openSidebar, setOpenSidebar] = React.useState(false)
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -211,7 +211,8 @@ export default function NavBar() {
             left: 0,
             width: '100%',
             zIndex: 1000,
-
+            backgroundColor: isBlack ? '#000' : 'transparent',
+            boxShadow: isBlack ? '0px 4px 10px rgba(0, 0, 0, 0.2)' : 'none',
         }}>
             <AppBar position="static"
                 sx={{
