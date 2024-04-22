@@ -10,6 +10,7 @@ import Men_Items from "../pages/Men/Men_Items";
 import Women_Items from "../pages/Women/Women_Items";
 import Children_Items from "../pages/children/Children_Items";
 import ItemDetails from "../pages/itemDetails/ItemDetails";
+import WomenItemsDetails from "../pages/itemDetails/Women/WomenItemsDetails";
 
 const Router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const Router = createBrowserRouter([
             {
                 path: '/itemDetails/:id',
                 element: <ItemDetails></ItemDetails>
+            },
+            {
+                path: '/WomenItemsDetails/:id',
+                element: <WomenItemsDetails></WomenItemsDetails>
             }
         ]
     },

@@ -120,7 +120,7 @@ export default function NavBar({ isBlack }) {
             </Link>
             <Link to='/children'>
                 <li className="group flex  cursor-pointer flex-col">
-                    CHILDREN<span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-white transition-all duration-300 group-hover:w-1/3"></span>
+                    KIDS<span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-white transition-all duration-300 group-hover:w-1/6"></span>
                 </li>
             </Link>
             <Link>

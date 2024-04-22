@@ -30,7 +30,7 @@ const Men_Items = () => {
                             menProducts?.map(product => (
                                 <button key={product._id}
                                     onClick={() => handleCategory(product?.title)}
-                                    className={`border block border-white text-white w-48 mb-2 px-4 md:ml-8 py-2 text-sm hover:bg-[#28282B] hover:text-white rounded-md text-center`}>{product.title}</button>
+                                    className={`border block border-white text-white w-48 px-4 md:ml-8 py-2 text-sm hover:bg-[#28282B] hover:text-white rounded-md text-center`}>{product.title}</button>
                             ))
                         }
                     </div>
