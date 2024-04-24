@@ -8,9 +8,10 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import Men_Items from "../pages/Men/Men_Items";
 import Women_Items from "../pages/Women/Women_Items";
-import Children_Items from "../pages/children/Children_Items";
 import ItemDetails from "../pages/itemDetails/ItemDetails";
 import WomenItemsDetails from "../pages/itemDetails/Women/WomenItemsDetails";
+import Kids_Items from "../pages/Children/Kids_Items";
+import KidsItemsDetails from "../pages/itemDetails/kids/KidsItemsDetails";
 
 const Router = createBrowserRouter([
     {
@@ -39,8 +40,8 @@ const Router = createBrowserRouter([
                 element: <Women_Items></Women_Items>
             },
             {
-                path: "/children",
-                element: <Kids
+                path: "/kids",
+                element: <Kids_Items></Kids_Items>
             },
             {
                 path: '/itemDetails/:id',
@@ -49,6 +50,10 @@ const Router = createBrowserRouter([
             {
                 path: '/WomenItemsDetails/:id',
                 element: <WomenItemsDetails></WomenItemsDetails>
+            },
+            {
+                path: '/KidsItemsDetails/:id',
+                element: <KidsItemsDetails></KidsItemsDetails>
             }
         ]
     },

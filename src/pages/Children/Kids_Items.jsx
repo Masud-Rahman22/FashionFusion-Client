@@ -5,6 +5,8 @@ import { useState } from 'react';
 
 import Women_Items_Card from "../../components/items_card/Women/Women_Items_Card";
 import KidsModelsBanner from "./KidsModelsBanner";
+import NavBar from "../../shared/NavBar/NavBar";
+import Kids_Items_Card from "../../components/items_card/kids/Kids_Items_Card";
 const Kids_Items = () => {
     const [clickedCategory, setClickedCategory] = useState(null);
     const axiosPublic = useAxios()
@@ -22,6 +24,7 @@ const Kids_Items = () => {
     console.log(kidsProducts)
     return (
         <div>
+            <NavBar isBlack={true} />
             <KidsModelsBanner></KidsModelsBanner>
             <div className='md:grid grid-cols-4 min-h-screen'>
                 <div className="col-span-1 mt-10">
@@ -41,7 +44,7 @@ const Kids_Items = () => {
                         kidsProducts
                             .filter(product => !clickedCategory || product.title === clickedCategory)
                             .map(filteredProduct => (
-                                <Women_Items_Card key={filteredProduct._id} filteredProduct={filteredProduct}></Women_Items_Card>
+                                <Kids_Items_Card key={filteredProduct._id} filteredProduct={filteredProduct}></Kids_Items_Card>
                             ))
                     }
                 </div>

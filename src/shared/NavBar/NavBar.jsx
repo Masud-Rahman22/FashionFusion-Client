@@ -14,8 +14,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { alpha } from '@mui/material/styles';
 // import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MoreIcon from '@mui/icons-material/MoreVert';
 // import { grey } from '@mui/material/colors';
 import Login from '../../pages/login/Login';
@@ -118,7 +118,7 @@ export default function NavBar({ isBlack }) {
                     WOMEN<span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-white transition-all duration-300 group-hover:w-1/4"></span>
                 </li>
             </Link>
-            <Link to='/children'>
+            <Link to='/kids'>
                 <li className="group flex  cursor-pointer flex-col">
                     KIDS<span className="mt-[2px] h-[3px] w-[0px] rounded-full bg-white transition-all duration-300 group-hover:w-1/6"></span>
                 </li>
@@ -206,15 +206,18 @@ export default function NavBar({ isBlack }) {
         </Menu>
     );
     return (
-        <Box sx={{ flexGrow: 1 }} style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            zIndex: 1000,
-            backgroundColor: isBlack ? '#000' : 'transparent',
-            boxShadow: isBlack ? '0px 4px 10px rgba(0, 0, 0, 0.2)' : 'none',
-        }}>
+        <Box
+            sx={{
+                flexGrow: 1,
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100%',
+                zIndex: 1000,
+                backgroundColor: isBlack ? '#000' : 'transparent',
+                boxShadow: isBlack ? '0px 4px 10px rgba(0, 0, 0, 0.2)' : 'none',
+            }}
+        >
             <AppBar position="static"
                 sx={{
                     backgroundColor: isScrolled ? '#000' : 'transparent',
@@ -284,7 +287,7 @@ export default function NavBar({ isBlack }) {
 
                         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                             <Badge badgeContent={4} color="error">
-                                <MailIcon />
+                                <FavoriteIcon></FavoriteIcon>
                             </Badge>
                         </IconButton>
                         <IconButton
@@ -293,7 +296,7 @@ export default function NavBar({ isBlack }) {
                             color="inherit"
                         >
                             <Badge badgeContent={17} color="error">
-                                <NotificationsIcon />
+                                <ShoppingCartIcon></ShoppingCartIcon>
                             </Badge>
                         </IconButton>
                         {
