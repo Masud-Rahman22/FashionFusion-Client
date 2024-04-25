@@ -16,23 +16,23 @@ const ItemDetails = () => {
             return res.data
         }
     })
-
-
+    const title = menProductById?.title
+    const description = menProductById?.description
+    const price = menProductById?.price
     const handleHover = (image) => {
         setHoveredImage(image);
     };
-
     const incrementQuantity = () => {
         setQuantity(prevQuantity => prevQuantity + 1);
     };
-
     const decrementQuantity = () => {
         if (quantity > 1) {
             setQuantity(prevQuantity => prevQuantity - 1);
         }
     };
-
-    const handleClick = () => {
+    const handleClick = async() => {
+        const res = await axiosPublic.post(`/api/productsCart/${title,description, price}`)
+        
         setIsAdded(true);
         setTimeout(() => {
             setIsAdded(false);
@@ -40,18 +40,16 @@ const ItemDetails = () => {
 
         // Add your logic for adding the item to the cart here
     };
-
     if (isLoading) return <div>Loading...</div>;
     if (isError) return <div>Error fetching data</div>;
 
-    console.log(menProductById)
     return (
         <div>
             <NavBar isBlack={true} />
             <div style={{ marginTop: '50px' }}>
                 <div className="grid grid-cols-7">
                     <div className="col-span-1 ml-20 my-10">
-                    {menProductById.images.slice(1).map((image, index) => (
+                        {menProductById.images.slice(1).map((image, index) => (
                             <img
                                 key={index}
                                 className="w-20 h-20 mb-5 cursor-pointer"
@@ -62,13 +60,13 @@ const ItemDetails = () => {
                         ))}
                     </div>
                     <div className="col-span-3 my-10">
-                    <div className="relative">
-                        <img
-                            className={`w-[800px] h-[673px] `}
-                            src={hoveredImage || menProductById.images[0]}
-                            alt=""
-                        />
-                    </div>
+                        <div className="relative">
+                            <img
+                                className={`w-[800px] h-[673px] `}
+                                src={hoveredImage || menProductById.images[0]}
+                                alt=""
+                            />
+                        </div>
                     </div>
                     <div className="text-white space-y-5 col-span-3 p-20">
                         <h1 className="text-4xl">{menProductById?.title}</h1>
@@ -103,11 +101,11 @@ const ItemDetails = () => {
                             </div>
                             <div className="flex-grow">
                                 <button
-                                className={`bg-white w-full hover:bg-[#28282B] hover:text-white text-black font-bold py-2 px-4 rounded ml-4 focus:outline-none transition-all duration-300 ${isAdded ? 'animate-bounce' : ''}`}
-                                onClick={handleClick}
-                            >
-                                {isAdded ? 'Added!' : 'Add to Cart'}
-                            </button>
+                                    className={`bg-white w-full hover:bg-[#28282B] hover:text-white text-black font-bold py-2 px-4 rounded ml-4 focus:outline-none transition-all duration-300 ${isAdded ? 'animate-bounce' : ''}`}
+                                    onClick={handleClick}
+                                >
+                                    {isAdded ? 'Added!' : 'Add to Cart'}
+                                </button>
                             </div>
                         </div>
                     </div>
