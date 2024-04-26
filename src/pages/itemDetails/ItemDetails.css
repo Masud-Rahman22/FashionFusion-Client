@@ -1,4 +1,17 @@
-.magnify{
-    width: '800px';
-    height: '673px';
+.color-option {
+    padding: 8px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.color-option.selected {
+    background-color: #ffffff; /* Selected color background */
+    color: #000000; /* Selected color text color */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+.selected {
+    background-color: #ffffff; /* Selected size background */
+    color: #000000; /* Selected size text color */
 }

@@ -22,7 +22,8 @@ import Login from '../../pages/login/Login';
 import { Drawer } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
-import { AuthContext } from '../../providers/AuthProvider';
+import RightSideBar from '../../components/sidebar/RightSideBar';
+import CartDropDown from '../../components/sidebar/CartDropDown';
 
 const TextTypography = styled(Typography)({
     fontFamily: 'Georgia, serif',
@@ -75,14 +76,25 @@ const TextTypography = styled(Typography)({
 
 // eslint-disable-next-line react/prop-types
 export default function NavBar({ isBlack }) {
-    const { user } = React.useContext(AuthContext)
     const [openSidebar, setOpenSidebar] = React.useState(false)
+    const [openRightSidebar, setOpenRightSidebar] = React.useState(false)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
     const [isScrolled, setIsScrolled] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
+    const dropDownRef = React.useRef(null);
+    let idx = 0;
+
+    React.useEffect(() => {
+        const close = (e) => {
+            if (dropDownRef.current && !dropDownRef.current.contains(e.target)) setOpen(false)
+        };
+        document.addEventListener('mousedown', close);
+        return () => document.removeEventListener('mousedown', close)
+    }, []);
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -150,6 +162,10 @@ export default function NavBar({ isBlack }) {
 
     const toggleSidebar = () => {
         setOpenSidebar(!openSidebar);
+    };
+
+    const toggleRightSidebar = () => {
+        setOpenRightSidebar(!openRightSidebar);
     };
 
     const menuId = 'primary-search-account-menu';
@@ -285,25 +301,36 @@ export default function NavBar({ isBlack }) {
                     </Search> */}
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
 
-                        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                            <Badge badgeContent={4} color="error">
+                        <IconButton size="large" color="inherit" onClick={toggleRightSidebar}>
+                            <Badge badgeContent={''} color="error">
                                 <FavoriteIcon></FavoriteIcon>
                             </Badge>
                         </IconButton>
                         <IconButton
                             size="large"
-                            aria-label="show 17 new notifications"
                             color="inherit"
+                            onClick={() => setOpen((prev) => !prev)} className="rounded-sm bg-sky-600"
                         >
-                            <Badge badgeContent={17} color="error">
+                            <Badge color="error">
                                 <ShoppingCartIcon></ShoppingCartIcon>
                             </Badge>
                         </IconButton>
-                        {
-                            user && <div className="relative group mx-2">
-                                <img className="size-[40px] bg-slate-500 object-cover rounded-full" src={user?.photoURL} alt="user" />
+                        <div ref={dropDownRef} className="relative mx-auto w-fit text-white">
+                            <div className={`${open ? 'visible' : 'invisible'} absolute top-12 z-50 rounded-sm`} style={{ width: '400px' }}>
+                                <div style={{ transform: `translateX(${open ? -380 : (idx + 1) * 20}px)` }} className={`rounded-sm bg-black ${open ? 'opacity-100 duration-500 ' : 'opacity-0 duration-200 '} hover:bg-black`}>
+                                    <CartDropDown></CartDropDown>
+                                </div>
+                                {/* {items.map((item, idx) => (
+                                    <li
+                                        key={idx}
+                                        className={`rounded-sm bg-black p-2 ${open ? 'opacity-100 duration-500 ' : 'opacity-0 duration-200 '} hover:bg-sky-500`}
+                                        style={{ transform: `translateX(${open ? -200 : (idx + 1) * 20}px)` }}
+                                    >
+                                        {item}
+                                    </li>
+                                ))} */}
                             </div>
-                        }
+                        </div>
                         <Login />
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -320,6 +347,25 @@ export default function NavBar({ isBlack }) {
                     </Box>
                 </Toolbar>
             </AppBar>
+            {/* Right Sidebar */}
+            <Drawer
+                anchor="right"
+                open={openRightSidebar}
+                onClose={() => setOpenRightSidebar(false)}
+                sx={{
+                    width: 500,
+                    flexShrink: 0,
+                    '& .MuiDrawer-paper': {
+                        width: 500,
+                        boxSizing: 'border-box',
+                        backgroundColor: 'black',
+                        paddingTop: '20px',
+                    },
+                }}
+            >
+                <RightSideBar></RightSideBar>
+            </Drawer>
+
             {renderMobileMenu}
             {renderMenu}
         </Box >
