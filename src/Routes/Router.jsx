@@ -12,6 +12,7 @@ import ItemDetails from "../pages/itemDetails/ItemDetails";
 import WomenItemsDetails from "../pages/itemDetails/Women/WomenItemsDetails";
 import Kids_Items from "../pages/Children/Kids_Items";
 import KidsItemsDetails from "../pages/itemDetails/kids/KidsItemsDetails";
+import CartPage from "../pages/cart/CartPage";
 
 const Router = createBrowserRouter([
     {
@@ -54,6 +55,10 @@ const Router = createBrowserRouter([
             {
                 path: '/KidsItemsDetails/:id',
                 element: <KidsItemsDetails></KidsItemsDetails>
+            },
+            {
+                path: '/cartPage',
+                element: <CartPage></CartPage>
             }
         ]
     },
