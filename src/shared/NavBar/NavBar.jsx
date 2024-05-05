@@ -24,6 +24,8 @@ import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import RightSideBar from '../../components/sidebar/RightSideBar';
 import CartDropDown from '../../components/sidebar/CartDropDown';
+import { Moon, Sun } from 'lucide-react';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const TextTypography = styled(Typography)({
     fontFamily: 'Georgia, serif',
@@ -76,6 +78,7 @@ const TextTypography = styled(Typography)({
 
 // eslint-disable-next-line react/prop-types
 export default function NavBar({ isBlack }) {
+    const {darkMode, setDarkMode} = React.useContext(ThemeContext)
     const [openSidebar, setOpenSidebar] = React.useState(false)
     const [openRightSidebar, setOpenRightSidebar] = React.useState(false)
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -331,6 +334,9 @@ export default function NavBar({ isBlack }) {
                                 ))} */}
                             </div>
                         </div>
+                        <button onClick={()=> setDarkMode(!darkMode)}>
+                        {darkMode ? <Sun></Sun>: <Moon></Moon>}
+                        </button>
                         <Login />
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
