@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../hooks/useAxios";
 import CartBanner from "./CartBanner";
 import CartTable from "./CartTable";
+import PaymentSection from "../../components/payment/PaymentSection";
 
 
 const CartPage = () => {
@@ -58,6 +59,9 @@ const CartPage = () => {
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div>
+                    <PaymentSection></PaymentSection>
                 </div>
             </div>
         </div>
