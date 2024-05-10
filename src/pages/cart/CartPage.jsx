@@ -61,7 +61,7 @@ const CartPage = () => {
                     </div>
                 </div>
                 <div>
-                    <PaymentSection></PaymentSection>
+                    <PaymentSection>Payment Method</PaymentSection>
                 </div>
             </div>
         </div>
